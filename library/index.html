@@ -10,10 +10,41 @@
   </head>
   <body>
     <div class="container">
+      <!-- Popup form -->
+      <div class="form-popup" id="myForm">
+        <form class="form-container">
+          <div>
+            <h3>New book</h3>
+          </div>
+
+          <div>
+            <label for="title"><b>Title</b></label>
+            <input type="text" name="title" class="title-input" required />
+          </div>
+
+          <div>
+            <label for="author"><b>Author</b></label>
+            <input type="text" name="author" class="author-input" required />
+          </div>
+
+          <div>
+            <label for="pages"><b>Pages</b></label>
+            <input type="number" name="pages" class="pages-input" required />
+          </div>
+          <div>
+            <button type="submit" class="btn">Login</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">
+              Close
+            </button>
+          </div>
+        </form>
+      </div>
       <div class="library">
         <div class="library-header">
           <h1>Library</h1>
-          <div><button>Add book</button></div>
+          <div>
+            <button class="open-button" onclick="openForm()">Add book</button>
+          </div>
         </div>
         <div class="books"></div>
       </div>
