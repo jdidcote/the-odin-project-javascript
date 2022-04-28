@@ -20,14 +20,15 @@
   height: 90%;
   margin: auto;
   background-color: white;
-  min-height: 550px;
-  min-width: 550px;
+  min-height: 500px;
+  min-width: 500px;
 }
 
 .library-header {
   display: flex;
-  border: 3px solid red;
-  height: 50px;
+  flex-direction: column;
+  justify-content: center;
+  height: 90px;
   text-align: center;
 }
 
@@ -35,10 +36,15 @@
   margin: auto;
 }
 
+.library-header button {
+  /* margin: auto; */
+  height: 30px;
+  width: 100px;
+}
+
 .books {
   display: flex;
   flex-wrap: wrap;
-  border: 3px solid blue;
   height: 100%;
   /* padding: 20px; */
 }
@@ -53,6 +59,7 @@
   min-height: 75px;
   width: 30%;
   max-height: 100px;
+  max-width: 300px;
   margin: 10px;
 }
 
