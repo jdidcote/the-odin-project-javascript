@@ -18,7 +18,7 @@ class Library {
 
     bookCard.classList.add("book-card");
     cardContent.innerHTML = book.title;
-    cardContent.innerHTML += "<br>";
+    cardContent.innerHTML += "<br><br>";
     cardContent.innerHTML += book.author;
 
     bookCard.appendChild(cardContent);
@@ -46,8 +46,6 @@ class Book {
   }
 }
 
-const library = new Library();
-
 function createExampleBooks() {
   let books = [
     new Book("Moby-Dick", "Herman Melville", 378, false),
@@ -58,6 +56,8 @@ function createExampleBooks() {
     library.addToLibrary(book);
   }
 }
+
+const library = new Library();
 
 createExampleBooks();
 library.updateCardsAllBooks();

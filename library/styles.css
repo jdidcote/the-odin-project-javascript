@@ -102,6 +102,7 @@
   max-height: 100px;
   max-width: 300px;
   margin: 10px;
+  background-color: rgba(143, 188, 143, 0.399);
 }
 
 .book-card span {

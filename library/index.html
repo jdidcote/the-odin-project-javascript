@@ -18,19 +18,28 @@
           </div>
 
           <div>
-            <label for="title"><b>Title</b></label>
+            <label for="title"><b>Title &nbsp;</b></label>
             <input type="text" name="title" class="title-input" required />
           </div>
 
           <div>
-            <label for="author"><b>Author</b></label>
+            <label for="author"><b>Author &nbsp;</b></label>
             <input type="text" name="author" class="author-input" required />
           </div>
 
           <div>
-            <label for="pages"><b>Pages</b></label>
+            <label for="pages"><b>Pages &nbsp;</b></label>
             <input type="number" name="pages" class="pages-input" required />
           </div>
+
+          <div>
+            <label for="read"><b>Read &nbsp;</b></label>
+            <select name="read" id="read">
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+
           <div>
             <button type="submit" class="btn">Login</button>
             <button type="button" class="btn cancel" onclick="closeForm()">
