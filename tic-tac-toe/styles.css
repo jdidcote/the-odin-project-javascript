@@ -5,26 +5,18 @@
 
 .title-area {
   text-align: center;
-  top: 100px;
-  right: 0;
-  left: 0;
-  margin: auto;
+  margin: 100px auto;
   font-size: 32px;
 }
 
 .board-container {
-  position: absolute;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   min-width: 300px;
   min-height: 300px;
   height: 50vh;
   aspect-ratio: 1;
-  margin: auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  margin: 50px auto;
   border: 3px solid black;
 }
 
