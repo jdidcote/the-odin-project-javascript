@@ -23,12 +23,18 @@ class Library {
     bookPages.innerHTML = "Pages: " + book.pages;
     const bookRead = document.createElement("span");
     bookRead.innerHTML = "Read: " + book.isRead;
+    const deleteButtonDiv = document.createElement("div");
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("card-delete-button");
+    deleteButton.innerHTML = "Delete";
+    deleteButtonDiv.appendChild(deleteButton);
 
     bookCard.classList.add("book-card");
     bookCard.appendChild(bookTitle);
     bookCard.appendChild(bookAuthor);
     bookCard.appendChild(bookPages);
     bookCard.appendChild(bookRead);
+    bookCard.appendChild(deleteButtonDiv);
     container.appendChild(bookCard);
   }
 

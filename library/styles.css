@@ -91,7 +91,7 @@
   margin: auto;
   overflow: auto;
   width: 75%;
-  border: 3px solid blue;
+  background-color: white;
 }
 
 .book-card {
@@ -101,7 +101,7 @@
   border: 2px solid black;
   border-radius: 3px;
   min-width: 120px;
-  min-height: 100px;
+  min-height: 130px;
   width: 60%;
   max-height: 100px;
   max-width: 500px;
@@ -114,4 +114,17 @@
   text-align: center;
   font-size: 1.2rem;
   font-weight: 800;
+}
+
+.book-card div {
+  display: flex;
+  height: 40px;
+}
+
+.book-card button {
+  background-color: rgba(255, 0, 0, 0.39);
+  margin: 5px auto 5px auto;
+  width: 30%;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
