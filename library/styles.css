@@ -85,9 +85,11 @@
 
 .books {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: flex-start;
   height: 100%;
-  /* padding: 20px; */
+  margin: auto;
+  overflow: auto;
 }
 
 .book-card {
@@ -95,12 +97,11 @@
   justify-content: center;
   border: 2px solid black;
   border-radius: 3px;
-  aspect-ratio: 4 / 1;
   min-width: 120px;
   min-height: 75px;
-  width: 30%;
+  width: 500px;
   max-height: 100px;
-  max-width: 300px;
+  max-width: 500px;
   margin: 10px;
   background-color: rgba(143, 188, 143, 0.399);
 }
