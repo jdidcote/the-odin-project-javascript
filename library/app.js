@@ -26,6 +26,7 @@ class Library {
     const deleteButtonDiv = document.createElement("div");
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("card-delete-button");
+    deleteButton.setAttribute("id", book.id);
     deleteButton.innerHTML = "Delete";
     deleteButtonDiv.appendChild(deleteButton);
 
@@ -45,6 +46,7 @@ class Library {
     for (let book of this.books) {
       this.#addCardForBook(book);
     }
+    updateDeleteButtons();
   }
 
   #assignBookID(newBook) {
@@ -67,6 +69,14 @@ class Library {
   addToLibrary(book) {
     this.#assignBookID(book);
     this.books.push(book);
+  }
+
+  removeFromLibrary(removeID) {
+    for (let i = 0; i < this.books.length; i++) {
+      if (this.books[i].id == removeID) {
+        this.books.splice(i, 1);
+      }
+    }
   }
 }
 
@@ -101,12 +111,20 @@ function handleNewBookInput() {
   // Book must have all fields filled in
   const allFilled = title != "" && author != "" && pages != "" && read != "";
 
-  console.log(allFilled);
-
   if (allFilled) {
     library.addToLibrary(newBook);
-    console.log("Adding new book");
   }
+}
+
+// Event listener for removing books
+function updateDeleteButtons() {
+  const deleteButtons = document.querySelectorAll(".card-delete-button");
+  deleteButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      library.removeFromLibrary(button.id);
+      library.updateCardsAllBooks();
+    });
+  });
 }
 
 // Event listener for adding new book
@@ -118,5 +136,10 @@ submitButton.addEventListener("click", (e) => {
 
 const library = new Library();
 
-createExampleBooks();
-library.updateCardsAllBooks();
+function main() {
+  createExampleBooks();
+  library.updateCardsAllBooks();
+  updateDeleteButtons();
+}
+
+main();
