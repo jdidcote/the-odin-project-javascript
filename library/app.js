@@ -26,8 +26,10 @@ class Library {
   }
 
   updateCardsAllBooks() {
+    // Clear screen and re-display all books
+    const container = document.querySelector(".books");
+    container.innerHTML = "";
     for (let book of this.books) {
-      console.log(book);
       this.#addCardForBook(book);
     }
   }
@@ -58,20 +60,29 @@ function createExampleBooks() {
 }
 
 function handleNewBookInput() {
-  const title = document.querySelector(".title-input");
-  const author = document.querySelector(".author-input");
-  const pages = document.querySelector(".pages-input");
-  const read = document.querySelector(".read-input");
+  const title = document.querySelector(".title-input").value;
+  const author = document.querySelector(".author-input").value;
+  const pages = document.querySelector(".pages-input").value;
+  const read = document.querySelector(".read-input").value;
 
-  const newBook = Book(title, author, pages, read);
-  library.addToLibrary(newBook);
-  console.log(library);
+  const newBook = new Book(title, author, pages, read == "Yes");
+
+  // Book must have all fields filled in
+  const allFilled = title != "" && author != "" && pages != "" && read != "";
+
+  console.log(allFilled);
+
+  if (allFilled) {
+    library.addToLibrary(newBook);
+    console.log("Adding new book");
+  }
 }
 
 // Event listener for adding new book
 const submitButton = document.querySelector(".submit-button");
 submitButton.addEventListener("click", (e) => {
   handleNewBookInput();
+  library.updateCardsAllBooks();
 });
 
 const library = new Library();
