@@ -128,3 +128,7 @@
   font-size: 1.1rem;
   font-weight: 600;
 }
+
+.book-card button:hover {
+  background-color: rgba(255, 0, 0, 0.589);
+}
