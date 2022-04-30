@@ -14,16 +14,37 @@ class Library {
   #addCardForBook(book) {
     const container = document.querySelector(".books");
     const bookCard = document.createElement("div");
-    const cardContent = document.createElement("span");
+
+    const bookTitle = document.createElement("span");
+    bookTitle.innerHTML = "Title: " + book.title;
+    const bookAuthor = document.createElement("span");
+    bookAuthor.innerHTML = "Author: " + book.author;
+    const bookPages = document.createElement("span");
+    bookPages.innerHTML = "Pages: " + book.pages;
+    const bookRead = document.createElement("span");
+    bookRead.innerHTML = "Read: " + book.isRead;
 
     bookCard.classList.add("book-card");
-    cardContent.innerHTML = book.title;
-    cardContent.innerHTML += "<br><br>";
-    cardContent.innerHTML += book.author;
-
-    bookCard.appendChild(cardContent);
+    bookCard.appendChild(bookTitle);
+    bookCard.appendChild(bookAuthor);
+    bookCard.appendChild(bookPages);
+    bookCard.appendChild(bookRead);
     container.appendChild(bookCard);
   }
+
+  // #addCardForBook(book) {
+  //   const container = document.querySelector(".books");
+  //   const bookCard = document.createElement("div");
+  //   const cardContent = document.createElement("span");
+
+  //   bookCard.classList.add("book-card");
+  //   cardContent.innerHTML = book.title;
+  //   cardContent.innerHTML += "<br><br>";
+  //   cardContent.innerHTML += book.author;
+
+  //   bookCard.appendChild(cardContent);
+  //   container.appendChild(bookCard);
+  // }
 
   updateCardsAllBooks() {
     // Clear screen and re-display all books

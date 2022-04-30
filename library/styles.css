@@ -90,19 +90,22 @@
   height: 100%;
   margin: auto;
   overflow: auto;
+  width: 75%;
+  border: 3px solid blue;
 }
 
 .book-card {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   border: 2px solid black;
   border-radius: 3px;
   min-width: 120px;
-  min-height: 75px;
-  width: 500px;
+  min-height: 100px;
+  width: 60%;
   max-height: 100px;
   max-width: 500px;
-  margin: 10px;
+  margin: 10px auto;
   background-color: rgba(143, 188, 143, 0.399);
 }
 
