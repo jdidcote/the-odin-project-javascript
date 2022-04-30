@@ -57,6 +57,23 @@ function createExampleBooks() {
   }
 }
 
+function handleNewBookInput() {
+  const title = document.querySelector(".title-input");
+  const author = document.querySelector(".author-input");
+  const pages = document.querySelector(".pages-input");
+  const read = document.querySelector(".read-input");
+
+  const newBook = Book(title, author, pages, read);
+  library.addToLibrary(newBook);
+  console.log(library);
+}
+
+// Event listener for adding new book
+const submitButton = document.querySelector(".submit-button");
+submitButton.addEventListener("click", (e) => {
+  handleNewBookInput();
+});
+
 const library = new Library();
 
 createExampleBooks();
