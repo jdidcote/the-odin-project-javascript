@@ -38,20 +38,6 @@ class Library {
     container.appendChild(bookCard);
   }
 
-  // #addCardForBook(book) {
-  //   const container = document.querySelector(".books");
-  //   const bookCard = document.createElement("div");
-  //   const cardContent = document.createElement("span");
-
-  //   bookCard.classList.add("book-card");
-  //   cardContent.innerHTML = book.title;
-  //   cardContent.innerHTML += "<br><br>";
-  //   cardContent.innerHTML += book.author;
-
-  //   bookCard.appendChild(cardContent);
-  //   container.appendChild(bookCard);
-  // }
-
   updateCardsAllBooks() {
     // Clear screen and re-display all books
     const container = document.querySelector(".books");
@@ -61,7 +47,25 @@ class Library {
     }
   }
 
+  #assignBookID(newBook) {
+    // If no books strart at zero
+    if (this.books.length == 0) {
+      newBook.id = 0;
+      return;
+    }
+
+    // Otherwise increment on the highest existing id
+    let currentMax = 0;
+    for (let book of this.books) {
+      if (book.id > currentMax) {
+        currentMax = book.id;
+      }
+    }
+    newBook.id = currentMax + 1;
+  }
+
   addToLibrary(book) {
+    this.#assignBookID(book);
     this.books.push(book);
   }
 }
