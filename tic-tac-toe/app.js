@@ -13,7 +13,10 @@ class Gameboard {
   }
 
   addMarkerToSquare(squareId, playerMarker) {
-    this.boardSquares[squareId].innerHTML = playerMarker;
+    const newMarker = document.createElement("span");
+    newMarker.innerHTML = playerMarker;
+    this.boardSquares[squareId].appendChild(newMarker);
+    // this.boardSquares[squareId].innerHTML = playerMarker;
   }
 
   getCurrentPlays() {

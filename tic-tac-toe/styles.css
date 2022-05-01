@@ -21,6 +21,14 @@
 }
 
 .board-square {
+  display: flex;
+  justify-content: center;
   border: 1px solid black;
   aspect-ratio: 1;
+}
+
+.board-square span {
+  font-size: 32px;
+  font-weight: 800;
+  margin: auto;
 }
