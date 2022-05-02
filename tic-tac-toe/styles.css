@@ -28,7 +28,40 @@
 }
 
 .board-square span {
-  font-size: 32px;
+  font-size: 5rem;
   font-weight: 800;
   margin: auto;
+}
+
+.game-over-div {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 75vw;
+  max-width: 700px;
+  height: 10vh;
+  border: 1px solid red;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  background-color: rgba(128, 128, 128, 0.452);
+}
+
+.game-over-div span {
+  margin: auto;
+  font-size: 3rem;
+  font-weight: 800;
+  color: white;
+}
+
+.blur {
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  background-color: #ccc;
 }

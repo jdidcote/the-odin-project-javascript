@@ -1,12 +1,12 @@
 class Gameboard {
   drawFreshBoard() {
     // Draw empty board to screen
-    const boardContainer = document.querySelector(".board-container");
+    this.boardContainer = document.querySelector(".board-container");
     for (let i = 0; i < 9; i++) {
       const boardSquare = document.createElement("div");
       boardSquare.setAttribute("data-gridNum", i);
       boardSquare.classList.add("board-square");
-      boardContainer.appendChild(boardSquare);
+      this.boardContainer.appendChild(boardSquare);
     }
     this.boardSquares = document.querySelectorAll(".board-square");
 
@@ -22,11 +22,20 @@ class Gameboard {
     newMarker.innerHTML = player.marker;
     this.boardSquares[squareId].appendChild(newMarker);
     this.boardArray[squareId] = player.id;
-    this.checkWinCondition();
+    this.handleGameStatus(this.checkGameStatus());
     return true;
   }
 
-  checkWinCondition() {
+  #checkAllNonEmpty(array) {
+    for (let val of array) {
+      if (val == 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  checkGameStatus() {
     const winIndexes = [
       // Horizontal win cons
       [0, 1, 2],
@@ -52,8 +61,32 @@ class Gameboard {
           this.boardArray[winIndex[0]] >
           0
       ) {
-        console.log("Player " + this.boardArray[winIndex[0]] + " wins!");
+        return { outcome: "win", player: this.boardArray[winIndex[0]] };
       }
+    }
+    if (this.#checkAllNonEmpty(this.boardArray)) {
+      return { outcome: "draw" };
+    }
+
+    return { outcome: "ongoing" };
+  }
+
+  handleGameStatus(gameStatus) {
+    if (gameStatus.outcome == "ongoing") {
+      return;
+    }
+
+    const gameDecision = document.createElement("div");
+    gameDecision.classList.add("game-over-div");
+    const gameDecisionText = document.createElement("span");
+    gameDecision.appendChild(gameDecisionText);
+    document.body.appendChild(gameDecision);
+    this.boardContainer.classList.add("blur");
+    if (gameStatus.outcome == "win") {
+      gameDecisionText.innerHTML =
+        "Game over, Player " + gameStatus.player + " wins!";
+    } else if (gameStatus.outcome == "draw") {
+      gameDecisionText.innerHTML = "Game over, Draw!";
     }
   }
 }
