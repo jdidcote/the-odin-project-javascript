@@ -15,11 +15,15 @@ class Gameboard {
   }
 
   addMarkerToSquare(squareId, player) {
+    if (!this.boardSquares[squareId].childElementCount == 0) {
+      return false;
+    }
     const newMarker = document.createElement("span");
     newMarker.innerHTML = player.marker;
     this.boardSquares[squareId].appendChild(newMarker);
     this.boardArray[squareId] = player.id;
     this.checkWinCondition();
+    return true;
   }
 
   checkWinCondition() {
@@ -76,11 +80,13 @@ class Game {
     // Waits for input and adds current players marker to the screen
     this.gameboard.boardSquares.forEach((square) => {
       square.addEventListener("click", () => {
-        this.gameboard.addMarkerToSquare(
+        const newMarker = this.gameboard.addMarkerToSquare(
           square.dataset.gridnum,
           this.players[this.currentPlayer]
         );
-        this.changePlayer();
+        if (newMarker) {
+          this.changePlayer();
+        }
       });
     });
   }
